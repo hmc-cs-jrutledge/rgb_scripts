@@ -22,6 +22,8 @@
 #include "FastLED.h"
 
 #define SWEEP_DELAY 100
+#define FROG_HUE 102
+
 class Pond {
  public:
   /**
@@ -29,12 +31,16 @@ class Pond {
    * \param num_leds number of LEDs in the strip.
    */
   Pond(CRGB* led_strip, const size_t num_leds);
+  void initialize_animation();
   void step_animation();
   size_t num_leds() const;
   double percent_of_deaths() const;
 
  private:
   void jump();
+  void jump_smooth_slide(const int jump_direction);
+  void jump_slide(const int jump_direction);
+  void jump_stagger(const int jump_direction);
   void draw_pond();
   void show_death();
   void show_escape();

@@ -22,7 +22,7 @@ void setup() {
 }
 
 void loop() {
+  pond.initialize_animation();
   pond.step_animation();
   FastLED.show();
-  FastLED.delay(1000 / UPDATES_PER_SECOND);
 }
